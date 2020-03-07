@@ -42,7 +42,7 @@
         <div class="notification">
           <div class="notification">
             <button on:click={readNotification} class="delete" />
-            Read me and discard me.
+            Read me and discard me...
           </div>
         </div>
       </div>

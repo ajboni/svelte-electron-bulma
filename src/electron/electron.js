@@ -6,17 +6,18 @@ const dev = NODE_ENV === 'development'
 
 
 if (dev) {
-	require('electron-reload')(path.join(__dirname, '..', 'public'), {
-		electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron')
+
+	require('electron-reload')(path.join(__dirname, '..', '..', 'public'), {
+		// electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron')
 	})
-}
+};
 
 function createWindow() {
 	// Create the browser window.
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
-		icon: path.join(__dirname, '..', 'public', 'favicon.png'),
+		icon: path.join(__dirname, '..', '..', 'public', 'favicon.png'),
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -53,18 +54,23 @@ app.on('activate', () => {
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. You can also put them in separate files and require them here. 
 
 let tray = null
 app.on('ready', () => {
 	const iconPath = path.join(__dirname, 'favicon.png');
-	console.log(iconPath)
+	// console.log(iconPath)
 	tray = new Tray(iconPath)
 	const contextMenu = Menu.buildFromTemplate([
 		{ label: 'Item1', type: 'radio' },
 		{ label: 'Item2', type: 'radio' },
 		{ label: 'Item3', type: 'radio', checked: true },
-		{ label: 'Item4', type: 'radio' }
+		{ type: 'separator' },
+		{
+			label: 'Exit', type: 'normal', click: () => {
+				app.quit();
+			}
+		}
 	])
 	tray.setToolTip('This is my application.')
 	tray.setContextMenu(contextMenu)

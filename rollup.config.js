@@ -7,7 +7,7 @@ import sass from 'rollup-plugin-sass';
 
 
 const production = !process.env.ROLLUP_WATCH;
-
+const watchMethod = process.env.WATCH;
 export default {
 	input: 'src/browser/main.js',
 	output: {
@@ -51,19 +51,26 @@ export default {
 		production && terser()
 	],
 	watch: {
-		clearScreen: false
+		clearScreen: false,
 	}
-};
+}
+
+
 
 function serve() {
+
 	let started = false;
+	let arg = 'start-nodemon'
+	if (watchMethod == "renderer") {
+		arg = 'start-nomon'
+	}
 
 	return {
 		writeBundle() {
 			if (!started) {
 				started = true;
 
-				require('child_process').spawn('npm', ['run', 'start'], {
+				require('child_process').spawn('npm', ['run', arg], {
 					stdio: ['ignore', 'inherit', 'inherit'],
 					shell: true
 				});
