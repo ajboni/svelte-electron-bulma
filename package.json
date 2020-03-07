@@ -20,11 +20,14 @@
 		"electron-reload": "^1.5.0",
 		"rollup": "^2.0.0",
 		"rollup-plugin-livereload": "^1.0.4",
+		"rollup-plugin-sass": "^1.2.2",
 		"rollup-plugin-svelte": "^5.1.1",
 		"rollup-plugin-terser": "^5.2.0",
 		"svelte": "^3.19.2"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.12.1",
+		"bulma": "^0.8.0",
 		"cross-env": "^7.0.2",
 		"sirv-cli": "^0.4.5"
 	}

@@ -3,6 +3,8 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import builtins from 'builtin-modules'
+import sass from 'rollup-plugin-sass';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -36,6 +38,9 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
+		sass({
+			output: 'public/build/bulma.css',
+		}),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
@@ -57,7 +62,7 @@ function serve() {
 		writeBundle() {
 			if (!started) {
 				started = true;
-				
+
 				require('child_process').spawn('npm', ['run', 'start'], {
 					stdio: ['ignore', 'inherit', 'inherit'],
 					shell: true
