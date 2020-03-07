@@ -2,12 +2,12 @@
 	"name": "svelte-app-electron",
 	"description": "svelte-app-electron",
 	"version": "0.1.0",
-	"main": "src/electron.js",
-	"author": "ajboni <mail@aboni.deb>",
+	"main": "src/electron/electron.js",
+	"author": "ajboni <mail@aboni.dev>",
 	"scripts": {
 		"build": "rollup -c && electron-builder",
 		"dev": "rollup -c -w",
-		"start": "cross-env NODE_ENV=development electron src/electron"
+		"start": "cross-env NODE_ENV=development electron src/electron/electron"
 	},
 	"build": {
 		"appId": "com.example.app"

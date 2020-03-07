@@ -9,7 +9,7 @@ import sass from 'rollup-plugin-sass';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
+	input: 'src/browser/main.js',
 	output: {
 		sourcemap: true,
 		format: 'cjs',
