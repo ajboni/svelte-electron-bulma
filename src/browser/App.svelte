@@ -1,5 +1,4 @@
 <script>
-  export let name;
   import { slide, fade, fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   let read = false;
@@ -11,17 +10,16 @@
 <main>
 
   {#if read}
-    <!-- content here -->
     <section
       in:fly={{ delay: 1000, x: 200, duration: 2000 }}
       out:fade={{ delay: 0 }}
       class="section">
       <div class="container">
-        <h1 class="title">Section</h1>
+        <h1 class="title">Bravo</h1>
         <h2 class="subtitle">
-          A simple container to divide your page into
-          <strong>sections</strong>
-          , like the one you're currently reading
+          Thank you for doing
+          <strong>that.</strong>
+          will you discard me again?
         </h2>
         <button
           class="button is-outlined"
@@ -33,7 +31,6 @@
       </div>
     </section>
   {:else}
-    <!-- content here -->
     <section
       in:slide={{ delay: 1000, duration: 3000, easing: quintOut }}
       out:fade
